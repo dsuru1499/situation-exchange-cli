@@ -1,0 +1,230 @@
+<div class="modal fade" role="dialog" #dialog>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Situation Exchange {{ (current$ | async)?.SituationNumber.value }} </h4>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-header">
+            <!-- <h5></h5> -->
+          </div>
+          <div class="card-body vertival-scroll">
+
+            <form [formGroup]="formGroup" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+
+              <!-- Identity Group -->
+              <div class="panel panel-default panel-borderless">
+                <div class="panel-body">
+
+                  <div class="form-group row">
+                    <label for="creationTime" class="col-sm-2">creationTime</label>
+                    <div class="col-sm-4">
+                      <input readonly type="text" class="form-control" id="creationTime" formControlName="creationTime">
+                    </div>
+                    <label for="version" class="col-sm-2">version</label>
+                    <div class="col-sm-4">
+                      <input readonly type="text" class="form-control" id="version" formControlName="version">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="participantRef" class="col-sm-2">participantRef</label>
+                    <div class="col-sm-4">
+                      <input readonly type="text" class="form-control" id="participantRef" formControlName="participantRef">
+                    </div>
+                    <label for="situationNumber" class="col-sm-2">situationNumber</label>
+                    <div class="col-sm-4">
+                      <input readonly type="text" class="form-control" id="situationNumber" formControlName="situationNumber">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Status Group -->
+              <div class="panel panel-default">
+                <div class="panel-body">
+
+                  <div class="form-group row">
+                    <label for="sourceType" class="col-sm-2">sourceType</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="sourceType" formControlName="sourceType">
+                        <option *ngFor="let option of data.sourceType" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                    <label for="progress" class="col-sm-2">progress</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="progress" formControlName="progress">
+                        <option *ngFor="let option of data.progress" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="qualityIndex" class="col-sm-2">qualityIndex</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="qualityIndex" formControlName="qualityIndex">
+                        <option *ngFor="let option of data.qualityIndex" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                    <label for="reality" class="col-sm-2">reality</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="reality" formControlName="reality">
+                        <option *ngFor="let option of data.reality" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Temporal Group -->
+              <div class="panel panel-default">
+                <div class="panel-body">
+                </div>
+              </div>
+
+              <!-- Classifier Group -->
+              <div class="panel panel-default">
+                <div class="panel-body">
+
+                  <div class="form-group row">
+                    <label for="severity" class="col-sm-2">severity</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="severity" formControlName="severity">
+                        <option *ngFor="let option of data.severity" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                    <label for="sensitivity" class="col-sm-2">sensitivity</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="sensitivity" formControlName="sensitivity">
+                        <option *ngFor="let option of data.sensitivity" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="audience" class="col-sm-2">audience</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="audience" formControlName="audience">
+                        <option *ngFor="let option of data.audience" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                    <label for="scopeType" class="col-sm-2">scopeType</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="scopeType" formControlName="scopeType">
+                        <option *ngFor="let option of data.scopeType" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="keywords" class="col-sm-2">keywords</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="keywords" formControlName="keywords">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Reason Group -->
+              <div class="panel panel-default">
+                <div class="panel-body">
+
+                  <div class="form-group row">
+                    <label for="publicEventReason" class="col-sm-2">publicEventReason</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="publicEventReason" formControlName="publicEventReason">
+                        <option *ngFor="let option of data.publicEventReason" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                    <label for="unknownReason" class="col-sm-2">unknownReason</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="unknownReason" formControlName="unknownReason">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+
+                    <label for="miscellaneousReason" class="col-sm-2">miscellaneousReason</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="miscellaneousReason" formControlName="miscellaneousReason">
+                        <option *ngFor="let option of data.miscellaneousReason" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                    <label for="personnelReason" class="col-sm-2">personnelReason</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="personnelReason" formControlName="personnelReason">
+                        <option *ngFor="let option of data.personnelReason" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="equipmentReason" class="col-sm-2">equipmentReason</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="equipmentReason" formControlName="equipmentReason">
+                        <option *ngFor="let option of data.equipmentReason" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                    <label for="environmentReason" class="col-sm-2">environmentReason</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="environmentReason" formControlName="environmentReason">
+                        <option *ngFor="let option of data.environmentReason" [value]="option">{{option}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="undefinedReason" class="col-sm-2">undefinedReason</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="undefinedReason" formControlName="undefinedReason">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Description Group -->
+              <div class="panel panel-default">
+
+                <div class="panel-body">
+
+                  <div class="form-group">
+                    <label for="summary">summary</label>
+                    <textarea class="form-control" rows="1" id="summary"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="description">description</label>
+                    <textarea class="form-control" rows="5" id="description"></textarea>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Consequences Group -->
+              <div class="panel panel-default">
+                <div class="panel-body">
+                </div>
+              </div>
+
+              <!-- Actions Group -->
+              <div class="panel panel-default">
+                <div class="panel-body">
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer ">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="f.ngSubmit.emit()" [disabled]="!formGroup.valid">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

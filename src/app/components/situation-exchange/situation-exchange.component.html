@@ -1,0 +1,95 @@
+<div dialog-anchor class="container">
+  <button (click)="onClick({ id: 'create'})" id="add" type="button" class="btn btn-default btn-default" aria-label="Left Align">
+    <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Situation Exchange
+  </button>
+  <table (change)="onClick($event)" datatable [settings]=settings class="table table-condensed table-striped table-bordered nowrap table-hover" cellspacing="0"
+    width="100%">
+    <thead>
+      <tr>
+        <th>Actions</th>
+
+        <th>SituationNumber</th>
+        <th>Source</th>
+        <th>Progress</th>
+        <th>QualityIndex</th>
+        <th>Reality</th>
+        <th>UnknownReason</th>
+        <th>MiscellaneousReason</th>
+        <th>PersonnelReason</th>
+        <th>EquipmentReason</th>
+        <th>EnvironmentReason</th>
+        <th>UndefinedReason</th>
+        <th>PublicEventReason</th>
+        <th>Severity</th>
+        <th>Sensitivity</th>
+        <th>Audience</th>
+        <th>ScopeType</th>
+        <th>Keywords</th>
+        <th>Summary</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search SituationNumber" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Source" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Progress" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search QualityIndex" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Reality" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search UnknownReason" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search MiscellaneousReason" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search PersonnelReason" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search EquipmentReason" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search EnvironmentReason" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search UndefinedReason" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search PublicEventReason" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Severity" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Sensitivity" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Audience" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search ScopeType" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Keywords" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Summary" />
+        </th>
+        <th>
+          <input type="text" class="form-control" placeholder="Search Description" />
+        </th>
+      </tr>
+  </table>
+</div>
