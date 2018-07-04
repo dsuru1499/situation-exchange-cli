@@ -52,6 +52,7 @@ export class LinesDiscoveryComponent implements OnInit, AfterViewInit {
   }
 
   private update(data: any, callback: ((result: any) => void), settings: any) {
+    console.log(data);
     this.all$.first(t => t.draw == data.draw).subscribe(t => {
       let array = Object.keys(t.entities).map(u => t.entities[u]);
       let result = <any>Object.assign({}, {
@@ -60,11 +61,12 @@ export class LinesDiscoveryComponent implements OnInit, AfterViewInit {
         recordsTotal: t.recordsTotal,
         draw: data.draw,
       });
-      console.log(result)
+      console.log(result);
       callback(result);
     });
 
     this.store.dispatch(new LinesDiscoveryActions.AllAction(data));
+
   }
 
 }
